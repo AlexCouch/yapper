@@ -22,7 +22,7 @@ func NewTemplate() *Template{
 
 func (t *Template) AddTemplate(name string) {
     path := filepath.Join("public/views/", name + ".html")
-    t.templates[name] = template.Must(template.ParseFiles("public/views/base.html", path))
+    t.templates[name] = template.Must(template.ParseFiles("public/views/base.html", "public/views/topbar.html", path))
 }
 
 func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error{

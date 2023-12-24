@@ -26,6 +26,7 @@ func main(){
     templs.AddTemplate("signin")
     templs.AddTemplate("profile")
     templs.AddTemplate("edit_profile")
+    templs.AddTemplate("topbar")
     e.Renderer = templs
     
     e.GET("/", handlers.Home)
