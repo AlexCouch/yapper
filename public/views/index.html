@@ -2,9 +2,12 @@
 <title>Welcome!</title>
 {{end}}
 {{define "content"}}
-<div class="md:container md:mx-auto">
-    <div class="px-4 sm:px-0">
-        <h1 class="text-base font-semibold leading-7 text-gray-900 dark:text-gray-50">Welcome to Yapper!</h1>
-    </div>
+<div class="mx-8 grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2 lg:gap-8">
+    <!-- Sidebar -->
+    {{ template "sidebar" . }}
+    <!-- Yap list -->
+    {{ template "yap" . }}
+    <!-- Extra -->
+    {{ template "extra" . }}
 </div>
 {{end}}
