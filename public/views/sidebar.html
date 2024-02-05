@@ -1,25 +1,25 @@
 {{ define "sidebar" }}
-<div class="m-5 lg:m-4 mt-3 border-r border-r-gray-600">
+<div class="m-5 lg:m-4 mt-3 border-r border-r-gray-900 dark:border-r-gray-600">
     <div class="flex flex-col items-end">
         <!-- Basic user info -->
         <div class="w-64 shrink-0 basis-auto flex flex-col items-start">
-            <a class="cursor-pointer flex flex-col items-start flex-1 w-full">
-                <div class="flex flex-row justify-center items-center space-x-5 p-3 transition duration-200 hover:bg-sky-700 rounded-lg">
+            <a class="flex flex-col items-start flex-1 w-full text-amber-700  ">
+                <div class="cursor-pointer flex flex-row justify-center items-center space-x-5 p-3 transition duration-200 hover:bg-amber-700 dark:text-white hover:text-white dark:hover:bg-sky-700 rounded-lg">
                     <img src="pfp.png" alt="Profile Picture" class="bottom-0 w-10 h-10">
                     <div class="mx-w-md w-full flex flex-col justify-center items-center space-y-2">
                         <!-- User Info with Verified Button -->
-                        <h2 class="text-sm font-bold text-white">Alex Couch</h2>
+                        <h2 class="text-sm font-bold ">Alex Couch</h2>
                         <!-- Bio -->
-                        <p class="text-gray-300 text-sm">@alexcouch</p>
+                        <p class="dark:text-gray-300 text-sm">@alexcouch</p>
                     </div>
                 </div>
             </a>
             <!-- Notifications -->
-            <a class="cursor-pointer flex flex-col items-start flex-1 w-full">
-                <div class="flex flex-row justify-center items-center p-3 transition duration-200 hover:bg-sky-700 rounded-lg">
-                    <div class="fa fa-envelope text-gray-300 fa-3x"></div>
+            <a class="cursor-pointer flex flex-col items-start flex-1 w-full text-amber-700 dark:text-white hover:text-white">
+                <div class="flex flex-row justify-center items-center px-3 transition duration-200 hover:bg-amber-700 dark:hover:bg-sky-700 rounded-lg">
+                    <div class="fa fa-envelope fa-2x"></div>
                     <div class="rounded-lg mx-w-md w-full py-4">
-                        <h2 class="text-xl ml-5 font-bold text-white">Notifications</h2>
+                        <h2 class="text-xl ml-5 font-bold">Notifications</h2>
                     </div>
                 </div>
             </a>
