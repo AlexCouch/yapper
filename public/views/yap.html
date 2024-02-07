@@ -1,4 +1,6 @@
 {{define "yap"}}
+<script src="index.js" type="module">
+</script>
 <div class="flex flex-col w-full lg:flex lg:items-center lg:w-auto lg:px-3 px-8 py-4">
     <div class="relative shrink-0 w-96 text-gray-600 dark:text-gray-50 lg:block hidden">
         <input
@@ -15,9 +17,10 @@
             </svg>
         </button>
     </div>
-    <div class="w-full h-16 p-4 bg-white mt-3" id="posted">
-        <div class="border-black">
-            <h1>Hello, world!</h1>
+    <div id="waveformContainer" class="w-full h-16 mt-3 hover:bg-sky-700" id="posted">
+        <span class="fa fa-play">
+        </span>
+        <div id="waveform" class="border-black">
         </div>
     </div>
 </div>

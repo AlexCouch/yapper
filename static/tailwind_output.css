@@ -1487,6 +1487,11 @@ select {
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-sky-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(3 105 161 / var(--tw-bg-opacity));
+}
+
 .hover\:text-amber-400:hover {
   --tw-text-opacity: 1;
   color: rgb(251 191 36 / var(--tw-text-opacity));
