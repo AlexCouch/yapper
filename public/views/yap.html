@@ -17,10 +17,16 @@
             </svg>
         </button>
     </div>
-    <div id="waveformContainer" class="w-full h-16 mt-3 hover:bg-sky-700" id="posted">
-        <span class="fa fa-play">
-        </span>
-        <div id="waveform" class="border-black">
+    <div id="yap" class="w-full pt-2">
+        <div class="flex flex-row space-x-3 w-full shadow shadow-black rounded-lg p-3 border-black hover:bg-sky-700/[.50] transition duration-300 ">
+            <div id="play_button" class="flex items-center text-white cursor-pointer">
+                <span id="yap_play" class="fa">
+                </span>
+            </div>
+            <div id="waveformContainer" class="grow h-12" id="posted">
+                <div id="waveform" class="border-black">
+                </div>
+            </div>
         </div>
     </div>
 </div>
