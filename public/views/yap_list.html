@@ -1,10 +1,7 @@
 {{define "yap_list"}}
 <div class="flex flex-col space-y-3 w-full justify-center items-center">
-    {{ $i := 0 }}
-    {{ template "yap" $i }}
-    {{ $i := 1 }}
-    {{ template "yap" $i }}
-    {{ $i := 2 }}
-    {{ template "yap" $i }}
+    {{ range $i := .Count }}
+        {{ template "yap" }}
+    {{end}}
 </div>
 {{end}}

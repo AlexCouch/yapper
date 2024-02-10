@@ -1,6 +1,8 @@
 module yapper.com/m/yapper
 
-go 1.21.0
+go 1.21.4
+
+toolchain go1.21.5
 
 require (
 	github.com/go-pg/pg/extra/pgdebug v0.2.0
@@ -13,6 +15,8 @@ require (
 )
 
 require (
+	github.com/a-h/templ v0.2.543 // indirect
+	github.com/angelofallars/htmx-go v0.5.0 // indirect
 	github.com/go-pg/zerochecker v0.2.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/tmthrgd/go-hex v0.0.0-20190904060850-447a3041c3bc // indirect

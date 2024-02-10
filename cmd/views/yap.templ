@@ -1,0 +1,36 @@
+package views
+
+import "fmt"
+
+script YapPlayerInit(id int) {
+console.log("Init yap player")
+render(id, ".waveContainer", "/audio.mp3")
+}
+
+templ Yap(id int) {
+	<div
+		class={ "yap" +
+    fmt.Sprint(id), "flex flex-col w-full pt-2 shadow shadow-black rounded-lg p-3 border-black hover:bg-sky-700/[.50] transition duration-300 " }
+	>
+		<script src="https://unpkg.com/wavesurfer.js@7"></script>
+		<script src="yap_player.js" type="text/javascript">
+    </script>
+		@YapPlayerInit(id)
+		<!-- User info and caption-->
+		<div class="flex flex-row justify-center items-center space-x-5">
+			<img src="pfp.png" alt="Profile Picture" class="bottom-0 w-10 h-10"/>
+			<div class="flex flex-col justify-center grow">
+				<h1 class="text-sm text-gray-200">
+					{ "@alexcouch" }
+				</h1>
+				<p class="text-lg text-white">Wuddup!</p>
+			</div>
+		</div>
+		<div class="flex flex-row space-x-3 w-full ">
+			<div class="play_button flex items-center text-white cursor-pointer">
+				<span class={ "yap_play" + fmt.Sprint(id), "fa" }></span>
+			</div>
+			<div class="waveContainer grow h-12" id="posted"></div>
+		</div>
+	</div>
+}

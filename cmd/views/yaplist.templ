@@ -1,0 +1,9 @@
+package views
+
+templ Yaplist() {
+	<div class="flex flex-col space-y-3 w-full justify-center items-center">
+		for id := range [5]int{0, 1, 2, 3, 4} {
+			@Yap(id)
+		}
+	</div>
+}

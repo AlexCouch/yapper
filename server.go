@@ -35,6 +35,7 @@ func main() {
 	e.POST("/register", handlers.Register)
 	e.GET("/signin", handlers.GotoSignin)
 	e.POST("/signin", handlers.Signin)
+	e.GET("/yaplist", handlers.YapList)
 
 	edit := e.Group("edit")
 	config := echojwt.Config{

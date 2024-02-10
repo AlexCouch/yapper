@@ -1,10 +1,8 @@
-import WaveSurfer from 'https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.esm.js'
-
 var wavesurfers = []
 let play_fa = 'fa-play'
 let pause_fa = 'fa-pause'
 
-export function render(id, selector, url){
+function render(id, selector, url){
     const yapContainer = `.yap${id}`
     const playButton = `.yap_play${id}`
 

@@ -15,6 +15,7 @@
             </svg>
         </button>
     </div>
-    {{ template "yap_list" . }}
+    <div hx-get="/yaplist" hx-trigger="load">
+    </div>
 </div>
 {{end}}
