@@ -22,7 +22,7 @@ func main() {
 	//e.Use(echojwt.JWT([]byte("secret")))
 
 	templs := templates.NewTemplate()
-	templs.AddTemplate("index", "topbar", "sidebar", "extra", "yap")
+	templs.AddTemplate("index", "topbar", "sidebar", "extra", "main", "yap", "yap_list")
 	templs.AddTemplate("signup", "topbar")
 	templs.AddTemplate("signin", "topbar")
 	templs.AddTemplate("profile", "topbar")
