@@ -12,9 +12,6 @@ templ Yap(id int) {
 		class={ "yap" +
     fmt.Sprint(id), "flex flex-col w-full pt-2 shadow shadow-black rounded-lg p-3 border-black hover:bg-sky-700/[.50] transition duration-300 " }
 	>
-		<script src="https://unpkg.com/wavesurfer.js@7"></script>
-		<script src="yap_player.js" type="text/javascript">
-    </script>
 		@YapPlayerInit(id)
 		<!-- User info and caption-->
 		<div class="flex flex-row justify-center items-center space-x-5">
