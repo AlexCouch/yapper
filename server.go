@@ -9,7 +9,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"yapper.com/m/yapper/cmd/auth"
 	"yapper.com/m/yapper/cmd/handlers"
-	"yapper.com/m/yapper/cmd/templates"
+	//"yapper.com/m/yapper/cmd/templates"
 )
 
 func main() {
@@ -21,13 +21,13 @@ func main() {
 	// if the token is expired or simply invalid
 	//e.Use(echojwt.JWT([]byte("secret")))
 
-	templs := templates.NewTemplate()
-	templs.AddTemplate("index", "topbar", "sidebar", "extra", "main", "yap", "yap_list")
-	templs.AddTemplate("signup", "topbar")
-	templs.AddTemplate("signin", "topbar")
-	templs.AddTemplate("profile", "topbar")
-	templs.AddTemplate("edit_profile", "topbar")
-	e.Renderer = templs
+	//templs := templates.NewTemplate()
+	//templs.AddTemplate("index", "topbar", "sidebar", "extra", "main", "yap", "yap_list")
+	//templs.AddTemplate("signup", "topbar")
+	//templs.AddTemplate("signin", "topbar")
+	//templs.AddTemplate("profile", "topbar")
+	//templs.AddTemplate("edit_profile", "topbar")
+	//e.Renderer = templs
 
 	e.GET("/", handlers.Home)
 	e.GET("/user/:id", handlers.UserProfile)

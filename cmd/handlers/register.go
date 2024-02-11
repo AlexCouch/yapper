@@ -11,7 +11,8 @@ import (
 )
 
 func GotoRegister(c echo.Context) error {
-	return c.Render(http.StatusOK, "signup", map[string]interface{}{"success": true})
+	comp := views.Register(views.RegisterInfo{})
+	return comp.Render(c.Request().Context(), c.Response().Writer)
 }
 
 func Register(c echo.Context) error {
