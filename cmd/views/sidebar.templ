@@ -6,8 +6,9 @@ templ Sidebar() {
 			<!-- Basic user info -->
 			<div class="w-64 shrink-0 basis-auto flex flex-col items-start">
 				<!-- Home -->
-				<a
-					href="/"
+				<div
+					hx-get="/"
+					hx-target="#main"
 					class="cursor-pointer flex flex-col items-start flex-1 w-full text-amber-700 hover:bg-amber-700/[.5] transition duration-200 dark:text-white hover:text-white dark:hover:bg-sky-700/[.50] py-4 px-2"
 				>
 					<div class="cursor-pointer flex flex-row justify-center items-center space-x-5 ">
@@ -16,7 +17,7 @@ templ Sidebar() {
 							<h2 class="text-xl font-bold">Home</h2>
 						</div>
 					</div>
-				</a>
+				</div>
 				<!-- TODO: Add route based on provided user id -->
 				<a
 					class="cursor-pointer flex flex-col items-start flex-1 w-full text-amber-700 hover:bg-amber-700 transition duration-200 dark:text-white hover:text-white dark:hover:bg-sky-700/[.50] py-4 px-2"
