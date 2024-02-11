@@ -34,7 +34,7 @@ func main() {
 	e.GET("/register", handlers.GotoRegister)
 	e.POST("/register", handlers.Register)
 	e.GET("/signin", handlers.GotoSignin)
-	e.POST("/signin", handlers.Signin)
+	e.POST("/signin", handlers.Login)
 	e.GET("/yaplist", handlers.YapList)
 
 	edit := e.Group("edit")

@@ -1,0 +1,95 @@
+package views
+
+import "yapper.com/m/yapper/cmd/models"
+import "fmt"
+
+type ProfileInfo struct {
+	User     models.User
+	Pfp      string
+	PfpLen   int64
+	SignedIn bool
+}
+
+templ profile(info ProfileInfo) {
+	<div class="p-24">
+		<div class="p-8 bg-white dark:bg-slate-700 shadow mx-96">
+			<div class="grid grid-cols-1 md:grid-cols-3">
+				<div class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
+					<div>
+						<p class="font-bold text-gray-700 dark:text-black text-xl">22</p>
+						<p class="text-gray-400 dark:text-white">Peeps</p>
+					</div>
+					<div>
+						<p class="font-bold text-gray-700 dark:text-black text-xl">10</p>
+						<p class="text-gray-400 dark:text-white">Yaps</p>
+					</div>
+					<div>
+						<p class="font-bold text-gray-700 dark:text-black text-xl">89</p>
+						<p class="text-gray-400 dark:text-white">Circles</p>
+					</div>
+				</div>
+				<div class="relative">
+					<div
+						class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500"
+					>
+						if info.PfpLen == 0 {
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
+								<path
+									fill-rule="evenodd"
+									d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+									clip-rule="evenodd"
+								></path>
+							</svg>
+						} else {
+							<img src={ "data:image/png;base64," + info.Pfp } class="rounded-full"/>
+						}
+					</div>
+				</div>
+				<div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
+					<button
+						class="text-white py-2 px-4 uppercase rounded bg-amber-400 dark:bg-sky-700 hover:bg-amber-500 dark:hover:bg-sky-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+					>
+						Follow
+					</button>
+					<button
+						class="text-white py-2 px-4 uppercase rounded bg-slate-700 hover:bg-slate-800 dark:bg-teal-700 dark:hover:bg-teal-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+					>
+						Message
+					</button>
+				</div>
+			</div>
+			<div class="mt-20 text-center border-b border-b-slate-800 pb-12">
+				<h1 class="text-4xl font-medium dark:text-gray-300 text-gray-700">
+					{ info.User.Name }
+					if info.SignedIn {
+						<a href={ templ.SafeURL("/edit/" + fmt.Sprint(info.User.Id)) }>
+							<i class="fa fa-edit" style="font-size: 24px"></i>
+						</a>
+					}
+				</h1>
+			</div>
+			if len(info.User.Bio) > 100 {
+				<div class="mt-12 flex flex-col justify-center">
+					<p class="text-gray-600 dark:text-white text-center font-light lg:px-16">{ info.User.Bio }</p>
+					<button class="text-indigo-500 py-2 px-4  font-medium mt-4">
+						Show more
+					</button>
+				</div>
+			} else if len(info.User.Bio) == 0 {
+				<div class="mt-12 text-center border-b border-slate-800 pb-12">
+					<p class="text-4 font-medium text-gray-400 dark:text-white">No bio available</p>
+				</div>
+			}
+			<div class="py-6 flex flex-col justify-center border-b border-b-slate-800">
+				<p class="text-gray-600 dark:text-white text-center font-light lg:px-16">{ info.User.Bio }</p>
+			</div>
+		</div>
+	</div>
+}
+
+templ Profile(info ProfileInfo) {
+	@Head(info.User.Name + " - Yapper")
+	@Body() {
+		@profile(info)
+	}
+}
