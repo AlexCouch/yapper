@@ -49,7 +49,7 @@ templ main() {
 				</svg>
 			</button>
 		</div>
-		<div class="w-full" hx-get="/yaplist" hx-trigger="load"></div>
+		{ children... }
 	</div>
 }
 
@@ -60,7 +60,9 @@ templ Base(title string) {
 			<div class="w-3/4 mx-auto">
 				<div class="mx-8 grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2 lg:gap-8 border-t-white">
 					@Sidebar()
-					@main()
+					@main() {
+						<div class="w-full" hx-get="/yaplist" hx-trigger="load"></div>
+					}
 					@Misc()
 				</div>
 			</div>

@@ -10,9 +10,90 @@ type ProfileInfo struct {
 	SignedIn bool
 }
 
-templ profile(info ProfileInfo) {
-	<div class="p-24">
-		<div class="p-8 bg-white dark:bg-slate-700 shadow mx-96">
+templ profilepic(pfp string) {
+	<div class="border border-black flex flex-col items-center">
+		<img class="w-32 h-32" src={ "data:image/png;base64," + pfp }/>
+		@user_buttons()
+	</div>
+}
+
+templ name(name string) {
+	<div class="flex flex-row items-center space-x-2">
+		<h1 class="text-white text-3xl">
+			{ name }
+		</h1>
+		<h1 class="text-md text-gray-300">
+			{ "@" + name }
+		</h1>
+	</div>
+}
+
+templ joined() {
+	<h1 class="text-gray-300 text-sm">
+		{ "Joined 6 Sept 2023" }
+	</h1>
+}
+
+templ user_buttons() {
+	<div class="flex flex-row space-x-2">
+		<button
+			class="text-white p-2 uppercase rounded bg-amber-400 dark:bg-sky-700 hover:bg-amber-500 dark:hover:bg-sky-800 shadow hover:shadow-lg transition transform hover:-translate-y-0.5"
+		>
+			Follow
+		</button>
+		<button
+			class="text-white p-2 uppercase rounded bg-amber-400 dark:bg-sky-700 hover:bg-amber-500 dark:hover:bg-sky-800 shadow hover:shadow-lg transition transform hover:-translate-y-0.5"
+		>
+			Message
+		</button>
+	</div>
+}
+
+templ user_data(user models.User) {
+	<div class="grow flex flex-col border border-black">
+		<h1 class="text-white text-md">
+			{ "50 Followers" }
+		</h1>
+		<h1 class="text-white text-md">
+			{ "20 Following" }
+		</h1>
+		<h1 class="text-white text-md">
+			{ "69 Yaps" }
+		</h1>
+	</div>
+}
+
+templ userinfo(user models.User) {
+	<div class="flex justify-start">
+		<div class="flex flex-col border border-black">
+			@name(user.Name)
+			@joined()
+			@user_data(user)
+		</div>
+	</div>
+}
+
+templ bio(bio string) {
+}
+
+templ profile_header(info ProfileInfo) {
+	<div class="flex flex-row border justify-between border-black space-x-2">
+		@profilepic(info.Pfp)
+		@userinfo(info.User)
+	</div>
+}
+
+templ ProfileMain(info ProfileInfo) {
+	<div class="flex flex-col w-96 h-full border border-black m-4">
+		@profile_header(info)
+		@bio(info.User.Bio)
+		//User's yaplist with htmx
+	</div>
+}
+
+templ old_profile(info ProfileInfo) {
+	<div class="">
+		<div class="bg-white dark:bg-slate-700 shadow">
 			<div class="grid grid-cols-1 md:grid-cols-3">
 				<div class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
 					<div>
@@ -90,6 +171,14 @@ templ profile(info ProfileInfo) {
 templ Profile(info ProfileInfo) {
 	@Head(info.User.Name + " - Yapper")
 	@Body() {
-		@profile(info)
+		<div class="w-3/4 mx-auto">
+			<div class="mx-8 grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2 lg:gap-8 border-t-white">
+				@Sidebar()
+				@main() {
+					@ProfileMain(info)
+				}
+				@Misc()
+			</div>
+		</div>
 	}
 }
