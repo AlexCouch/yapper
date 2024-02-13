@@ -71,7 +71,7 @@ func Yap(id int) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1><p class=\"text-lg text-white\">Wuddup!</p></div></div><div class=\"flex flex-row space-x-3 w-full \"><div class=\"play_button flex items-center text-white cursor-pointer\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1><p class=\"text-lg text-white\">Wuddup!</p></div></div><div class=\"flex flex-row w-full gap-2\"><div class=\"play_button flex items-center text-white cursor-pointer\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -88,7 +88,7 @@ func Yap(id int) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"></span></div><div class=\"waveContainer grow h-12\" id=\"posted\"></div></div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"></span></div><div class=\"waveContainer max-w-[96%] flex-1 h-12\"></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

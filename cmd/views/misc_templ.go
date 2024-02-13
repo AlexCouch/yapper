@@ -23,7 +23,7 @@ func Misc() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"lg:col-span-1 p-4 mt-3\"><div class=\"h-32 bg-white\"><h1>Hello, world!</h1></div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-1/4\"><div class=\"h-32 bg-white\"><h1>Hello, world!</h1></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

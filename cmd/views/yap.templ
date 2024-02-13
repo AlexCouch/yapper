@@ -23,11 +23,11 @@ templ Yap(id int) {
 				<p class="text-lg text-white">Wuddup!</p>
 			</div>
 		</div>
-		<div class="flex flex-row space-x-3 w-full ">
+		<div class="flex flex-row w-full gap-2">
 			<div class="play_button flex items-center text-white cursor-pointer">
 				<span class={ "yap_play" + fmt.Sprint(id), "fa" }></span>
 			</div>
-			<div class="waveContainer grow h-12" id="posted"></div>
+			<div class="waveContainer max-w-[96%] flex-1 h-12"></div>
 		</div>
 	</div>
 }
