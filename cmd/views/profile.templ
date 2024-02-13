@@ -1,7 +1,6 @@
 package views
 
 import "yapper.com/m/yapper/cmd/models"
-import "fmt"
 
 type ProfileInfo struct {
 	User     models.User
@@ -11,15 +10,16 @@ type ProfileInfo struct {
 }
 
 templ profilepic(pfp string) {
-	<div class="border border-black flex flex-col items-center">
-		<img class="w-32 h-32" src={ "data:image/png;base64," + pfp }/>
-		@user_buttons()
+	<div class="grid grid-cols-2 grid-rows-2 row-span-3 col-span-2">
+		<div class="row-span-2 col-span-2">
+			<img class="rounded-full p-2 w-full h-full" src={ "data:image/png;base64," + pfp }/>
+		</div>
 	</div>
 }
 
 templ name(name string) {
-	<div class="flex flex-row items-center space-x-2">
-		<h1 class="text-white text-3xl">
+	<div class="flex flex-col h-full justify-center">
+		<h1 class="text-white text-5xl">
 			{ name }
 		</h1>
 		<h1 class="text-md text-gray-300">
@@ -35,144 +35,85 @@ templ joined() {
 }
 
 templ user_buttons() {
-	<div class="flex flex-row space-x-2">
-		<button
-			class="text-white p-2 uppercase rounded bg-amber-400 dark:bg-sky-700 hover:bg-amber-500 dark:hover:bg-sky-800 shadow hover:shadow-lg transition transform hover:-translate-y-0.5"
+	<div class="col-span-2 row-span-1 flex flex-row items-start mt-2 space-x-2">
+		<div
+			class="text-white w-8 h-8 p-2 inline-block cursor-pointer hover:bg-amber-500 dark:hover:bg-sky-800 transition duration-200"
 		>
-			Follow
-		</button>
-		<button
-			class="text-white p-2 uppercase rounded bg-amber-400 dark:bg-sky-700 hover:bg-amber-500 dark:hover:bg-sky-800 shadow hover:shadow-lg transition transform hover:-translate-y-0.5"
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4 fill-white">
+				<!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+				<path
+					d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+				></path>
+			</svg>
+		</div>
+		<span
+			class="text-white w-8 h-8 p-2 inline-block cursor-pointer hover:bg-amber-500 dark:hover:bg-sky-800 transition duration-200"
 		>
-			Message
-		</button>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fill-white w-4 h-4">
+				<!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+				<path
+					d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"
+				></path>
+			</svg>
+		</span>
 	</div>
 }
 
 templ user_data(user models.User) {
-	<div class="grow flex flex-col border border-black">
-		<h1 class="text-white text-md">
-			{ "50 Followers" }
-		</h1>
-		<h1 class="text-white text-md">
-			{ "20 Following" }
-		</h1>
-		<h1 class="text-white text-md">
-			{ "69 Yaps" }
-		</h1>
+	<div class="flex flex-col justify-start h-full border-black">
+		@joined()
+		<div class="flex flex-row space-x-2">
+			<h1 class="text-white text-lg">
+				{ "50 Followers" }
+			</h1>
+			<h1 class="text-white text-lg">
+				{ "20 Following" }
+			</h1>
+			<h1 class="text-white text-lg">
+				{ "69 Yaps" }
+			</h1>
+		</div>
+		@user_buttons()
 	</div>
 }
 
 templ userinfo(user models.User) {
-	<div class="flex justify-start">
-		<div class="flex flex-col border border-black">
+	<div class="col-start-3 col-span-4 row-span-2 flex">
+		<div class="flex flex-col h-full w-full border-black">
 			@name(user.Name)
-			@joined()
 			@user_data(user)
 		</div>
 	</div>
 }
 
 templ bio(bio string) {
+	<div class="row-start-3 col-span-full w-full h-auto">
+		<h1 class="text-white text-lg">
+			{ bio }
+		</h1>
+	</div>
 }
 
 templ profile_header(info ProfileInfo) {
-	<div class="flex flex-row border justify-between border-black space-x-2">
+	<div class="col-span-full row-span-2 grid grid-cols-6 grid-rows-2 space-x-4">
 		@profilepic(info.Pfp)
 		@userinfo(info.User)
 	</div>
 }
 
 templ ProfileMain(info ProfileInfo) {
-	<div class="flex flex-col w-96 h-full border border-black m-4">
+	<div class="grid grid-cols-6 auto-rows-min border-black w-auto">
 		@profile_header(info)
 		@bio(info.User.Bio)
 		//User's yaplist with htmx
 	</div>
 }
 
-templ old_profile(info ProfileInfo) {
-	<div class="">
-		<div class="bg-white dark:bg-slate-700 shadow">
-			<div class="grid grid-cols-1 md:grid-cols-3">
-				<div class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
-					<div>
-						<p class="font-bold text-gray-700 dark:text-black text-xl">22</p>
-						<p class="text-gray-400 dark:text-white">Peeps</p>
-					</div>
-					<div>
-						<p class="font-bold text-gray-700 dark:text-black text-xl">10</p>
-						<p class="text-gray-400 dark:text-white">Yaps</p>
-					</div>
-					<div>
-						<p class="font-bold text-gray-700 dark:text-black text-xl">89</p>
-						<p class="text-gray-400 dark:text-white">Circles</p>
-					</div>
-				</div>
-				<div class="relative">
-					<div
-						class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500"
-					>
-						if info.PfpLen == 0 {
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
-								<path
-									fill-rule="evenodd"
-									d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-									clip-rule="evenodd"
-								></path>
-							</svg>
-						} else {
-							<img src={ "data:image/png;base64," + info.Pfp } class="rounded-full"/>
-						}
-					</div>
-				</div>
-				<div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
-					<button
-						class="text-white py-2 px-4 uppercase rounded bg-amber-400 dark:bg-sky-700 hover:bg-amber-500 dark:hover:bg-sky-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
-					>
-						Follow
-					</button>
-					<button
-						class="text-white py-2 px-4 uppercase rounded bg-slate-700 hover:bg-slate-800 dark:bg-teal-700 dark:hover:bg-teal-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
-					>
-						Message
-					</button>
-				</div>
-			</div>
-			<div class="mt-20 text-center border-b border-b-slate-800 pb-12">
-				<h1 class="text-4xl font-medium dark:text-gray-300 text-gray-700">
-					{ info.User.Name }
-					if info.SignedIn {
-						<a href={ templ.SafeURL("/edit/" + fmt.Sprint(info.User.Id)) }>
-							<i class="fa fa-edit" style="font-size: 24px"></i>
-						</a>
-					}
-				</h1>
-			</div>
-			if len(info.User.Bio) > 100 {
-				<div class="mt-12 flex flex-col justify-center">
-					<p class="text-gray-600 dark:text-white text-center font-light lg:px-16">{ info.User.Bio }</p>
-					<button class="text-indigo-500 py-2 px-4  font-medium mt-4">
-						Show more
-					</button>
-				</div>
-			} else if len(info.User.Bio) == 0 {
-				<div class="mt-12 text-center border-b border-slate-800 pb-12">
-					<p class="text-4 font-medium text-gray-400 dark:text-white">No bio available</p>
-				</div>
-			}
-			<div class="py-6 flex flex-col justify-center border-b border-b-slate-800">
-				<p class="text-gray-600 dark:text-white text-center font-light lg:px-16">{ info.User.Bio }</p>
-			</div>
-		</div>
-	</div>
-}
-
 templ Profile(info ProfileInfo) {
 	@Head(info.User.Name + " - Yapper")
 	@Body() {
-		<div class="w-3/4 mx-auto">
-			<div class="mx-8 grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2 lg:gap-8 border-t-white">
+		<div class="w-full">
+			<div class="flex flex-row justify-center border-t-white">
 				@Sidebar()
 				@main() {
 					@ProfileMain(info)
