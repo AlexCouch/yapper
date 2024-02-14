@@ -37,7 +37,7 @@ func Yap(id int) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		var templ_7745c5c3_Var2 = []any{"yap" +
-			fmt.Sprint(id), "flex flex-col w-full pt-2 shadow shadow-black rounded-lg p-3 border-black hover:bg-sky-700/[.50] transition duration-300 "}
+			fmt.Sprint(id), "flex flex-col w-full pt-2 shadow shadow-black rounded-lg p-3 border-black hover:bg-gray-200/[.50] dark:hover:bg-sky-700/[.50] transition duration-300"}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -58,7 +58,7 @@ func Yap(id int) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- User info and caption--><div class=\"flex flex-row justify-center items-center space-x-5\"><img src=\"pfp.png\" alt=\"Profile Picture\" class=\"bottom-0 w-10 h-10\"><div class=\"flex flex-col justify-center grow\"><h1 class=\"text-sm text-gray-200\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- User info and caption--><div class=\"flex flex-row justify-center items-center space-x-5\"><img src=\"pfp.png\" alt=\"Profile Picture\" class=\"bottom-0 w-10 h-10\"><div class=\"flex flex-col justify-center grow\"><h1 class=\"text-sm text-amber-700 dark:text-gray-200\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -71,7 +71,7 @@ func Yap(id int) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1><p class=\"text-lg text-white\">Wuddup!</p></div></div><div class=\"flex flex-row w-full gap-2\"><div class=\"play_button flex items-center text-white cursor-pointer\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1><p class=\"text-lg text-slate-700 dark:text-white\">Wuddup!</p></div></div><div class=\"flex flex-row w-full gap-2\"><div class=\"play_button flex items-center text-amber-700 dark:text-white cursor-pointer\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

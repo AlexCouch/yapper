@@ -2,26 +2,51 @@ var wavesurfers = []
 let play_fa = 'fa-play'
 let pause_fa = 'fa-pause'
 
+var waveColor = "#b45309";
+var progressColor = "#f59e0b";
+const matcher = window.matchMedia('(prefers-color-scheme: dark)');
+matcher.addEventListener('change', function(e){
+    toggleDarkMode(e.matches)
+    
+    for (idx in wavesurfers){
+        const ws = wavesurfers[idx]
+        console.log(ws)
+        ws.setOptions({
+            waveColor: waveColor,
+            progressColor: progressColor
+        })
+    }
+})
+toggleDarkMode(matcher.matches);
+
+function toggleDarkMode(toggle){
+    if (!toggle){
+        //Light mode
+        waveColor = "#b45309";
+        progressColor = "#f59e0b";
+    }else{
+        //Dark mode
+        waveColor = "rgb(3 105 161)";
+        progressColor = "rgb(125 211 252)";
+    }
+}
+
 function render(id, selector, url){
     const yapContainer = `.yap${id}`
     const playButton = `.yap_play${id}`
 
     let outerContainer = $(selector)[id]
-    console.log(outerContainer)
     let rect = outerContainer.getBoundingClientRect()
-    console.log(rect)
     let width = rect.width
     let height = rect.height
 
     let trackid = "t" + id
     let container = $("<div id='" + trackid + "'>").appendTo(outerContainer)
 
-    
-
     wavesurfers[trackid] = WaveSurfer.create({
         container: `#${trackid}`,
-        waveColor: "rgb(3 105 161)",
-        progressColor: "rgb(125 211 252)",
+        waveColor: waveColor,
+        progressColor: progressColor,
         cursorWidth: 0,
         url: url,
         width: width,

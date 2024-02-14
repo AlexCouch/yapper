@@ -36,7 +36,7 @@ func Head(title string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><link href=\"/tailwind_output.css\" rel=\"stylesheet\"><script src=\"https://kit.fontawesome.com/c38f071398.js\" crossorigin=\"anonymous\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js\"></script><script src=\"https://unpkg.com/htmx.org@1.9.10\"></script><script src=\"https://unpkg.com/wavesurfer.js@7\"></script><script src=\"yap_player.js\" type=\"text/javascript\">\n    </script><link rel=\"icon\" href=\"/light-favicon.png\" id=\"light-scheme-icon\"><link rel=\"icon\" href=\"/dark-favicon.png\" id=\"dark-scheme-icon\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><link href=\"/tailwind_output.css\" rel=\"stylesheet\"><script src=\"https://kit.fontawesome.com/c38f071398.js\" crossorigin=\"anonymous\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js\"></script><script src=\"https://unpkg.com/htmx.org@1.9.10\"></script><script src=\"https://unpkg.com/wavesurfer.js@7\"></script><link rel=\"icon\" href=\"/light-favicon.png\" id=\"light-scheme-icon\"><link rel=\"icon\" href=\"/dark-favicon.png\" id=\"dark-scheme-icon\"><script src=\"/yap_player.js\" type=\"text/javascript\">\n    </script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
