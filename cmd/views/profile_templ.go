@@ -32,7 +32,7 @@ func profilepic(pfp string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"grid col-start-1 row-start-2 grid-cols-2 grid-rows-2 row-span-3 col-span-2\"><div class=\"row-span-2 col-span-2 border-4 border-white\"><img class=\"w-full h-full\" src=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"grid col-start-1 row-start-2 grid-cols-2 grid-rows-2 row-span-3 col-span-2\"><div class=\"m-6 translate-y-4 row-span-2 col-span-2 border-4 border-white\"><img class=\"w-full h-full\" src=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -326,7 +326,7 @@ func profile_header(info ProfileInfo) templ.Component {
 			templ_7745c5c3_Var15 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"col-span-full row-span-2 grid grid-cols-6 grid-rows-3 space-x-4\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"col-span-full row-span-2 grid grid-cols-6 grid-rows-3\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
