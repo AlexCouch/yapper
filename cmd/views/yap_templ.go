@@ -58,7 +58,7 @@ func Yap(id int) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- User info and caption--><div class=\"flex flex-row justify-center items-center space-x-5\"><img src=\"pfp.png\" alt=\"Profile Picture\" class=\"bottom-0 w-10 h-10\"><div class=\"flex flex-col justify-center grow\"><h1 class=\"text-sm text-amber-700 dark:text-gray-200\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- User info and caption--><div class=\"flex flex-row justify-center items-center space-x-5\"><img src=\"/pfp.png\" alt=\"Profile Picture\" class=\"bottom-0 w-10 h-10\"><div class=\"flex flex-col justify-center grow\"><h1 class=\"text-sm text-amber-700 dark:text-gray-200\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

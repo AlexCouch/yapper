@@ -8,7 +8,6 @@ templ Yaplist() {
 	</div>
 }
 
-templ YaplistMain() {
-	@main() {
-	}
+templ YaplistHTMX() {
+	<div class="w-full" hx-get="/yaplist" hx-trigger="load"></div>
 }

@@ -61,7 +61,7 @@ templ Base(title string) {
 				<div class="flex flex-row justify-center border-t-white">
 					@Sidebar()
 					@main() {
-						<div class="w-full" hx-get="/yaplist" hx-trigger="load"></div>
+						@YaplistHTMX()
 					}
 					@Misc()
 				</div>

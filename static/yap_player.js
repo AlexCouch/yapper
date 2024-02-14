@@ -36,6 +36,7 @@ function render(id, selector, url){
     const playButton = `.yap_play${id}`
 
     let outerContainer = $(selector)[id]
+    console.log(outerContainer)
     let rect = outerContainer.getBoundingClientRect()
     let width = rect.width
     let height = rect.height
