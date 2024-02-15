@@ -19,7 +19,7 @@ templ profilepic(pfp string) {
 
 templ name(name string) {
 	<div class="row-start-3 col-start-3 flex flex-col h-full justify-center">
-		<h1 class="text-gray-700 dark:text-white text-5xl">
+		<h1 class="text-gray-700 dark:text-white text-4xl">
 			{ name }
 		</h1>
 		<h1 class="text-md text-gray-900 dark:text-gray-300">
@@ -60,14 +60,20 @@ templ user_buttons() {
 }
 
 templ user_data(user models.User) {
-	<div class="flex flex-col justify-start h-full border-black">
+	<div class="py-2 px-1 flex flex-col justify-start h-full border-black">
 		@joined()
 		<div class="flex flex-row space-x-2">
-			<h1 class="text-gray-700 dark:text-white text-lg">
-				{ "50 Followers" }
+			<h1 class="dark:text-gray-300 text-gray-700 text-sm">
+				<span class="text-sky-700 font-bold">
+					{ "50" }
+				</span>
+				{ " Followers" }
 			</h1>
-			<h1 class="text-gray-700 dark:text-white text-lg">
-				{ "20 Following" }
+			<h1 class="dark:text-gray-300 text-gray-700 text-sm">
+				<span class="text-sky-700 font-bold">
+					{ "20" }
+				</span>
+				{ " Following" }
 			</h1>
 		</div>
 	</div>
