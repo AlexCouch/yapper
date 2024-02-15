@@ -10,7 +10,7 @@ render(id, ".waveContainer", "/audio.mp3")
 templ Yap(id int) {
 	<div
 		class={ "yap" +
-    fmt.Sprint(id), "flex flex-col w-full pt-2 shadow shadow-black rounded-lg p-3 border-black hover:bg-gray-200/[.50] dark:hover:bg-sky-700/[.50] transition duration-300" }
+    fmt.Sprint(id), "flex flex-col w-full pt-2 shadow shadow-black p-3 border-black hover:bg-gray-200/[.50] dark:hover:bg-sky-700/[.50] transition duration-300" }
 	>
 		@YapPlayerInit(id)
 		<!-- User info and caption-->

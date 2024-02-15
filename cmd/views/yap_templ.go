@@ -37,7 +37,7 @@ func Yap(id int) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		var templ_7745c5c3_Var2 = []any{"yap" +
-			fmt.Sprint(id), "flex flex-col w-full pt-2 shadow shadow-black rounded-lg p-3 border-black hover:bg-gray-200/[.50] dark:hover:bg-sky-700/[.50] transition duration-300"}
+			fmt.Sprint(id), "flex flex-col w-full pt-2 shadow shadow-black p-3 border-black hover:bg-gray-200/[.50] dark:hover:bg-sky-700/[.50] transition duration-300"}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
