@@ -93,8 +93,17 @@ templ edit(info EditProfileData) {
 	}
 }
 
+script closeModal() {
+console.log("Closing modal")
+$("#editModal")?.remove();
+}
+
 templ background() {
-	<div class="flex flex-row items-center z-10 justify-center fixed w-screen h-full">
+	<div
+		id="editModal"
+		onclick={ closeModal() }
+		class="flex flex-row items-center z-10 justify-center fixed w-screen h-full"
+	>
 		<div class="fixed w-full h-full bg-gray-500/50 z-10 pointer-events-none"></div>
 		{ children... }
 	</div>
