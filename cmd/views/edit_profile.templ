@@ -1,6 +1,14 @@
 package views
 
-templ edit(info ProfileInfo) {
+import "yapper.com/m/yapper/cmd/models"
+
+type EditProfileData struct {
+	User   models.User
+	Pfp    string
+	PfpLen int64
+}
+
+templ old_edit(info ProfileInfo) {
 	<div class="p-24">
 		<div class="p-8 bg-white dark:bg-slate-700 shadow mx-96">
 			<form action="#" method="POST" enctype="multipart/form-data">
@@ -79,7 +87,20 @@ templ edit(info ProfileInfo) {
 	</div>
 }
 
-templ EditProfile(info ProfileInfo) {
+templ edit(info EditProfileData) {
+	@background() {
+		<div class="h-2/3 w-[600px] bg-slate-900 m-auto z-20"></div>
+	}
+}
+
+templ background() {
+	<div class="flex flex-row items-center z-10 justify-center fixed w-screen h-full">
+		<div class="fixed w-full h-full bg-gray-500/50 z-10 pointer-events-none"></div>
+		{ children... }
+	</div>
+}
+
+templ EditProfile(info EditProfileData) {
 	@Head(info.User.Name + " - Yapper")
 	@Body() {
 		@edit(info)

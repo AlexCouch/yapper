@@ -8,18 +8,14 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/angelofallars/htmx-go"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/labstack/echo/v4"
 	"yapper.com/m/yapper/cmd/auth"
 	"yapper.com/m/yapper/cmd/models"
 	"yapper.com/m/yapper/cmd/repositories"
+	"yapper.com/m/yapper/cmd/views"
 )
-
-type editProfileData struct {
-	User   models.User
-	Pfp    string
-	PfpLen int64
-}
 
 func EditProfile(c echo.Context) error {
 	user := c.Get("user").(*jwt.Token)
@@ -39,7 +35,7 @@ func EditProfile(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-	editData := editProfileData{User: target_user}
+	editData := views.EditProfileData{User: target_user}
 	if target_user.ProfileImage > 0 {
 		pfp, err := repositories.GetProfilePictureById(target_user.ProfileImage)
 		if err != nil {
@@ -49,7 +45,9 @@ func EditProfile(c echo.Context) error {
 		editData.Pfp = imgBase64
 		editData.PfpLen = pfp.Length
 	}
-	return c.Render(http.StatusOK, "edit_profile", editData)
+	comp := views.EditProfile(editData)
+	return htmx.NewResponse().
+		RenderTempl(c.Request().Context(), c.Response().Writer, comp)
 }
 
 func uploadProfilePicture(pfp_header *multipart.FileHeader) (int, error) {
