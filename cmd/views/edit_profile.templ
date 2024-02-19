@@ -87,6 +87,10 @@ templ old_edit(info ProfileInfo) {
 	</div>
 }
 
+script onload() {
+$('body').addClass('overflow-none');
+}
+
 templ edit(info EditProfileData) {
 	@background() {
 		<div class="h-2/3 w-[600px] bg-slate-900 m-auto z-20"></div>
@@ -99,8 +103,8 @@ $("#editModal")?.remove();
 }
 
 templ background() {
-	<div id="editModal" class="flex flex-row items-center z-10 justify-center fixed w-screen h-full">
-		<div onclick={ closeModal() } class="fixed w-full h-full bg-gray-500/50 z-10 pointer-events-auto"></div>
+	<div id="editModal" class="flex flex-row items-center z-10 justify-center fixed w-screen h-screen">
+		<div onclick={ closeModal() } class="fixed w-full h-screen bg-gray-500/50 z-10 pointer-events-auto overscroll-none"></div>
 		{ children... }
 	</div>
 }

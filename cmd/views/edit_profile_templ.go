@@ -83,6 +83,16 @@ func old_edit(info ProfileInfo) templ.Component {
 	})
 }
 
+func onload() templ.ComponentScript {
+	return templ.ComponentScript{
+		Name: `__templ_onload_9984`,
+		Function: `function __templ_onload_9984(){$('body').addClass('overflow-none');
+}`,
+		Call:       templ.SafeScript(`__templ_onload_9984`),
+		CallInline: templ.SafeScriptInline(`__templ_onload_9984`),
+	}
+}
+
 func edit(info EditProfileData) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
@@ -146,7 +156,7 @@ func background() templ.Component {
 			templ_7745c5c3_Var6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"editModal\" class=\"flex flex-row items-center z-10 justify-center fixed w-screen h-full\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"editModal\" class=\"flex flex-row items-center z-10 justify-center fixed w-screen h-screen\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -163,7 +173,7 @@ func background() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"fixed w-full h-full bg-gray-500/50 z-10 pointer-events-auto\"></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"fixed w-full h-screen bg-gray-500/50 z-10 pointer-events-auto overscroll-none\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
