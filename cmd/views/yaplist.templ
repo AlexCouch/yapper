@@ -11,3 +11,9 @@ templ Yaplist() {
 templ YaplistHTMX() {
 	<div class="w-full" hx-get="/yaplist" hx-trigger="load"></div>
 }
+
+templ YaplistHome() {
+	@main() {
+		@YaplistHTMX()
+	}
+}

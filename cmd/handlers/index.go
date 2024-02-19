@@ -8,7 +8,7 @@ import (
 
 func Home(c echo.Context) error {
 	if htmx.IsHTMX(c.Request()) {
-		comp := views.Yaplist()
+		comp := views.YaplistHTMX()
 		return comp.Render(c.Request().Context(), c.Response().Writer)
 	}
 	base := views.Base("Yapper")
