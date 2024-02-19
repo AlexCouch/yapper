@@ -36,7 +36,8 @@ func Login(c echo.Context) error {
 		} else {
 			return c.String(http.StatusOK, "Unknown error: "+err.Error())
 		}
-		return c.Render(http.StatusOK, "signin", info)
+		comp := views.Login(info)
+		return comp.Render(c.Request().Context(), c.Response().Writer)
 	}
 	cookie := new(http.Cookie)
 	cookie.Name = "user"
