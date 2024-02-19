@@ -780,12 +780,20 @@ select {
   top: 0px;
 }
 
+.left-0 {
+  left: 0px;
+}
+
 .z-10 {
   z-index: 10;
 }
 
 .z-20 {
   z-index: 20;
+}
+
+.z-\[-1\] {
+  z-index: -1;
 }
 
 .order-last {
@@ -862,6 +870,10 @@ select {
 
 .m-auto {
   margin: auto;
+}
+
+.m-2 {
+  margin: 0.5rem;
 }
 
 .mx-96 {
@@ -970,6 +982,22 @@ select {
   height: 100vh;
 }
 
+.h-\[200px\] {
+  height: 200px;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.h-0 {
+  height: 0px;
+}
+
+.h-\[0\.1px\] {
+  height: 0.1px;
+}
+
 .min-h-full {
   min-height: 100%;
 }
@@ -1030,6 +1058,18 @@ select {
   width: 100vw;
 }
 
+.w-16 {
+  width: 4rem;
+}
+
+.w-0 {
+  width: 0px;
+}
+
+.w-\[0\.1px\] {
+  width: 0.1px;
+}
+
 .max-w-\[96\%\] {
   max-width: 96%;
 }
@@ -1040,6 +1080,10 @@ select {
 
 .shrink-0 {
   flex-shrink: 0;
+}
+
+.shrink {
+  flex-shrink: 1;
 }
 
 .grow {
@@ -1159,6 +1203,10 @@ select {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .overscroll-auto {
@@ -1288,6 +1336,10 @@ select {
 
 .fill-current {
   fill: currentColor;
+}
+
+.fill-white {
+  fill: #fff;
 }
 
 .p-2 {
@@ -1508,6 +1560,10 @@ select {
   opacity: 0.6;
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -1613,6 +1669,11 @@ select {
 .hover\:bg-slate-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gray-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
 .hover\:fill-white:hover {
