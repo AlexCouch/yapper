@@ -9,10 +9,14 @@ templ Sidebar() {
 				<div
 					hx-get="/"
 					hx-target="#main"
-					class="cursor-pointer flex flex-col items-start flex-1 w-full text-amber-700 hover:bg-amber-700 transition duration-200 dark:text-white hover:text-white dark:hover:bg-sky-700/[.50] py-4 px-2"
+					class="cursor-pointer flex flex-col items-start flex-1 w-full hover:fill-white fill-amber-700 dark:fill-white text-amber-700 hover:bg-amber-700 transition duration-200 dark:text-white hover:text-white dark:hover:bg-sky-700/[.50] py-4 px-2"
 				>
 					<div class="cursor-pointer flex flex-row justify-center items-center space-x-5 ">
-						<div class="fa-solid fa-home" style="font-size: 2.5em;"></div>
+						<svg class="w-16 h-16" viewBox="0 0 256 256" version="1.1">
+							<path
+								d="M 128,3 A 34.340659,34.375 0 0 0 93.659336,37.375 V 218.62499 A 34.340659,34.375 0 0 0 128,253 34.340659,34.375 0 0 0 162.34066,218.62499 V 37.375 A 34.340659,34.375 0 0 0 128,3 Z M 30.472527,46.75 A 27.472527,22.34375 0 0 0 3,69.09375 v 117.8125 A 27.472527,22.34375 0 0 0 30.472527,209.25 27.472527,22.34375 0 0 0 57.945055,186.90625 V 69.09375 A 27.472527,22.34375 0 0 0 30.472527,46.75 Z m 195.054943,0 a 27.472527,22.34375 0 0 0 -27.47253,22.34375 v 117.8125 A 27.472527,22.34375 0 0 0 225.52747,209.25 27.472527,22.34375 0 0 0 253,186.90625 V 69.09375 A 27.472527,22.34375 0 0 0 225.52747,46.75 Z"
+							></path>
+						</svg>
 						<div class="rounded-lg mx-w-md w-full">
 							<h2 class="text-xl font-bold">Home</h2>
 						</div>

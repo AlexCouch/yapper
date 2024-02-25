@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256"
+   height="256"
+   viewBox="0 0 256 256"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="home-icon.svg"
+   inkscape:export-xdpi="12.8"
+   inkscape:export-ydpi="12.8"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   sodipodi:docname="dark-favicon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="4"
+     inkscape:cx="40.375"
+     inkscape:cy="87"
+     inkscape:window-width="1920"
+     inkscape:window-height="1003"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <defs
+     id="defs1" />
+  <path
+     id="rect1"
+     style="fill:#f9f9f9;fill-opacity:1;stroke-width:0"
+     inkscape:label="Icon"
+     d="M 128,3 A 34.340659,34.375 0 0 0 93.659336,37.375 V 218.62499 A 34.340659,34.375 0 0 0 128,253 34.340659,34.375 0 0 0 162.34066,218.62499 V 37.375 A 34.340659,34.375 0 0 0 128,3 Z M 30.472527,46.75 A 27.472527,22.34375 0 0 0 3,69.09375 v 117.8125 A 27.472527,22.34375 0 0 0 30.472527,209.25 27.472527,22.34375 0 0 0 57.945055,186.90625 V 69.09375 A 27.472527,22.34375 0 0 0 30.472527,46.75 Z m 195.054943,0 a 27.472527,22.34375 0 0 0 -27.47253,22.34375 v 117.8125 A 27.472527,22.34375 0 0 0 225.52747,209.25 27.472527,22.34375 0 0 0 253,186.90625 V 69.09375 A 27.472527,22.34375 0 0 0 225.52747,46.75 Z" />
+</svg>

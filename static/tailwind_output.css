@@ -735,10 +735,6 @@ select {
   --tw-backdrop-sepia:  ;
 }
 
-.pointer-events-none {
-  pointer-events: none;
-}
-
 .pointer-events-auto {
   pointer-events: auto;
 }
@@ -780,20 +776,12 @@ select {
   top: 0px;
 }
 
-.left-0 {
-  left: 0px;
-}
-
 .z-10 {
   z-index: 10;
 }
 
 .z-20 {
   z-index: 20;
-}
-
-.z-\[-1\] {
-  z-index: -1;
 }
 
 .order-last {
@@ -872,10 +860,6 @@ select {
   margin: auto;
 }
 
-.m-2 {
-  margin: 0.5rem;
-}
-
 .mx-96 {
   margin-left: 24rem;
   margin-right: 24rem;
@@ -946,6 +930,10 @@ select {
   height: 3rem;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .h-2\/3 {
   height: 66.666667%;
 }
@@ -970,6 +958,10 @@ select {
   height: 2rem;
 }
 
+.h-\[200px\] {
+  height: 200px;
+}
+
 .h-auto {
   height: auto;
 }
@@ -980,22 +972,6 @@ select {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[200px\] {
-  height: 200px;
-}
-
-.h-16 {
-  height: 4rem;
-}
-
-.h-0 {
-  height: 0px;
-}
-
-.h-\[0\.1px\] {
-  height: 0.1px;
 }
 
 .min-h-full {
@@ -1016,6 +992,10 @@ select {
 
 .w-12 {
   width: 3rem;
+}
+
+.w-16 {
+  width: 4rem;
 }
 
 .w-24 {
@@ -1058,18 +1038,6 @@ select {
   width: 100vw;
 }
 
-.w-16 {
-  width: 4rem;
-}
-
-.w-0 {
-  width: 0px;
-}
-
-.w-\[0\.1px\] {
-  width: 0.1px;
-}
-
 .max-w-\[96\%\] {
   max-width: 96%;
 }
@@ -1080,10 +1048,6 @@ select {
 
 .shrink-0 {
   flex-shrink: 0;
-}
-
-.shrink {
-  flex-shrink: 1;
 }
 
 .grow {
@@ -1205,24 +1169,8 @@ select {
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
-.overflow-hidden {
-  overflow: hidden;
-}
-
-.overscroll-auto {
-  overscroll-behavior: auto;
-}
-
-.overscroll-contain {
-  overscroll-behavior: contain;
-}
-
 .overscroll-none {
   overscroll-behavior: none;
-}
-
-.overscroll-y-none {
-  overscroll-behavior-y: none;
 }
 
 .rounded {
@@ -1336,10 +1284,6 @@ select {
 
 .fill-current {
   fill: currentColor;
-}
-
-.fill-white {
-  fill: #fff;
 }
 
 .p-2 {
@@ -1556,12 +1500,12 @@ select {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.opacity-60 {
-  opacity: 0.6;
-}
-
 .opacity-0 {
   opacity: 0;
+}
+
+.opacity-60 {
+  opacity: 0.6;
 }
 
 .shadow {
@@ -1669,11 +1613,6 @@ select {
 .hover\:bg-slate-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-gray-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
 .hover\:fill-white:hover {
