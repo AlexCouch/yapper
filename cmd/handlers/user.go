@@ -32,7 +32,7 @@ func UserProfile(c echo.Context) error {
 		userData.PfpLen = pfp.Length
 	}
 
-	signedIn, err := auth.CheckSignedIn(idInt, c.Cookies())
+	signedIn, err := auth.CheckUserIdSignedIn(idInt, c.Cookies())
 	if err != nil {
 		return err
 	}

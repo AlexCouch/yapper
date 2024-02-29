@@ -112,7 +112,6 @@ func UploadProfilePicture(pfp models.ProfileImage) (int, error) {
 
 	var id int
 	_, err = db.Model(&pfp).Returning("id").Insert(&id)
-	println(id)
 
 	return id, err
 }
@@ -126,4 +125,16 @@ func UpdateUser(user models.User, column string) error {
 
 	_, err = db.Model(&user).WherePK().Column(column).Update()
 	return err
+}
+
+func UploadBanner(banner models.Banner) (int, error) {
+	db, err := storage.GetDB()
+	if err != nil {
+		return -1, err
+	}
+	defer db.Close()
+
+	var id int
+	_, err = db.Model(&banner).Returning("id").Insert(&id)
+	return id, err
 }

@@ -3,6 +3,7 @@ package handlers
 import (
 	"bufio"
 	"encoding/base64"
+	"errors"
 	"fmt"
 	"mime/multipart"
 	"net/http"
@@ -103,4 +104,72 @@ func SaveProfileChanges(c echo.Context) error {
 		}
 	}
 	return c.Redirect(http.StatusMovedPermanently, fmt.Sprintf("/user/%d", id))
+}
+
+func uploadBanner(header *multipart.FileHeader) (models.Banner, error) {
+	size := header.Size
+	data := make([]byte, size)
+	if size == 0 {
+		return models.Banner{}, nil
+	}
+	file, err := header.Open()
+	if err != nil {
+		return models.Banner{}, err
+	}
+	defer file.Close()
+
+	bufReader := bufio.NewReader(file)
+	_, err = bufReader.Read(data)
+	if err != nil {
+		return models.Banner{}, err
+	}
+	banner := models.Banner{
+		Data:   data,
+		Length: int(size),
+	}
+	bannerId, err := repositories.UploadBanner(banner)
+	if err != nil {
+		return models.Banner{}, err
+	}
+	banner.Id = bannerId
+	return banner, nil
+}
+
+func EditBanner(c echo.Context) error {
+	if !htmx.IsHTMX(c.Request()) {
+		//Change to an error dialog/modal/toast instead
+		return errors.New("Expected an htmx request")
+	}
+	userCookie, err := c.Cookie("user")
+	if err != nil {
+		println(err)
+		return err
+	}
+	if err := auth.CheckSignedIn(userCookie); err != nil {
+		println(err)
+		return err
+	}
+	userId, err := auth.GetUser(userCookie.Value)
+	if err != nil {
+		return err
+	}
+
+	header, err := c.FormFile("banner")
+	if err != nil {
+		return err
+	}
+	banner, err := uploadBanner(header)
+	if err != nil {
+		return err
+	}
+
+	user := models.User{Id: userId, Banner: banner.Id}
+	err = repositories.UpdateUser(user, "banner")
+	if err != nil {
+		return nil
+	}
+	bannerB64 := base64.StdEncoding.EncodeToString(banner.Data)
+
+	comp := views.Banner(bannerB64)
+	return htmx.NewResponse().RenderTempl(c.Request().Context(), c.Response().Writer, comp)
 }

@@ -116,7 +116,7 @@ func editBanner() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-full h-[200px] p-2\"><div class=\"flex justify-center items-center w-full h-full\"><div class=\"w-8 h-8 rounded-full flex justify-center items-center hover:bg-amber-700 dark:hover:bg-sky-700 hover:border-sky-700 transition duration-200 hover:fill-white fill-amber-700 border-2 border-white dark:fill-white\"><svg class=\"w-8 h-8 p-2\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d=\"M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z\"></path></svg> <input class=\"absolute w-8 h-8 cursor-pointer opacity-0\" accept=\"images/png,images/jpg\" type=\"file\" title=\"Add photo\"></div></div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-full h-[200px] p-2\"><div class=\"flex justify-center items-center w-full h-full\"><div id=\"banner\" class=\"absolute\"><img src=\"/banner_test.png\"></div><div class=\"z-10 w-8 h-8 rounded-full flex justify-center items-center hover:bg-amber-700 dark:hover:bg-sky-700 hover:border-sky-700 transition duration-200 hover:fill-white fill-amber-700 border-2 border-white dark:fill-white\"><svg class=\"w-8 h-8 p-2\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d=\"M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z\"></path></svg><!-- Maybe use HTMX to update the banner behind the picture --><form class=\"absolute w-8 h-8 m-0\" hx-trigger=\"change\" hx-post=\"/edit/banner\" hx-target=\"#banner\" hx-encoding=\"multipart/form-data\"><input id=\"banner-select\" class=\"absolute w-8 h-8 cursor-pointer opacity-0\" accept=\"images/png,images/jpg\" type=\"file\" title=\"Add photo\" name=\"banner\"></form></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -328,6 +328,10 @@ func EditProfile(info EditProfileData) templ.Component {
 			if !templ_7745c5c3_IsBuffer {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n    htmx.logAll();\n</script> ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
 			}
 			templ_7745c5c3_Err = edit(info).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
